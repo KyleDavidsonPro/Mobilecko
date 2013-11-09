@@ -32,6 +32,10 @@
         MasterViewController *controller = (MasterViewController *)navigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
     }
+    
+    //Parse set up
+    [Parse setApplicationId:@"ZJXP9PAIaXLxa5pNA8f7jMTuU6fKDYal0AZs6oIS"
+                  clientKey:@"gEkgyu15tzjfGdZLBuHD1fLBXH4Nnpw0eivZhT5F"];
     return YES;
 }
 							
