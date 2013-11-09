@@ -22,6 +22,10 @@
 		B15A9AB6182E7F6E00CCD141 /* Mobilecko.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B15A9AB4182E7F6E00CCD141 /* Mobilecko.xcdatamodeld */; };
 		B15A9AB9182E7F6E00CCD141 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B15A9AB8182E7F6E00CCD141 /* MasterViewController.m */; };
 		B15A9ABC182E7F6E00CCD141 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B15A9ABB182E7F6E00CCD141 /* DetailViewController.m */; };
+		B15A9AC4182E88E800CCD141 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15A9AC3182E88E800CCD141 /* MapKit.framework */; };
+		B15A9AC6182E88ED00CCD141 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15A9AC5182E88ED00CCD141 /* CoreLocation.framework */; };
+		B15A9AC9182E893400CCD141 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B15A9AC8182E893400CCD141 /* MapViewController.m */; };
+		B15A9ACB182E925900CCD141 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15A9ACA182E925900CCD141 /* Parse.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +50,11 @@
 		B15A9AB8182E7F6E00CCD141 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		B15A9ABA182E7F6E00CCD141 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		B15A9ABB182E7F6E00CCD141 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		B15A9AC3182E88E800CCD141 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		B15A9AC5182E88ED00CCD141 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B15A9AC7182E893400CCD141 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		B15A9AC8182E893400CCD141 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		B15A9ACA182E925900CCD141 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,10 +62,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B15A9AC6182E88ED00CCD141 /* CoreLocation.framework in Frameworks */,
+				B15A9AC4182E88E800CCD141 /* MapKit.framework in Frameworks */,
 				B15A9A95182E7F6E00CCD141 /* UIKit.framework in Frameworks */,
 				B15A9A97182E7F6E00CCD141 /* Foundation.framework in Frameworks */,
 				B15A9A99182E7F6E00CCD141 /* CoreGraphics.framework in Frameworks */,
 				B15A9A9B182E7F6E00CCD141 /* CoreData.framework in Frameworks */,
+				B15A9ACB182E925900CCD141 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,8 +78,11 @@
 		B15A9A88182E7F6D00CCD141 = {
 			isa = PBXGroup;
 			children = (
+				B15A9AC5182E88ED00CCD141 /* CoreLocation.framework */,
+				B15A9AC3182E88E800CCD141 /* MapKit.framework */,
 				B15A9A9C182E7F6E00CCD141 /* Mobilecko */,
 				B15A9A93182E7F6E00CCD141 /* Frameworks */,
+				B15A9ACA182E925900CCD141 /* Parse.framework */,
 				B15A9A92182E7F6E00CCD141 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,6 +109,7 @@
 		B15A9A9C182E7F6E00CCD141 /* Mobilecko */ = {
 			isa = PBXGroup;
 			children = (
+				B15A9AC2182E887F00CCD141 /* Map */,
 				B15A9AA5182E7F6E00CCD141 /* AppDelegate.h */,
 				B15A9AA6182E7F6E00CCD141 /* AppDelegate.m */,
 				B15A9AAE182E7F6E00CCD141 /* MainStoryboard_iPhone.storyboard */,
@@ -120,6 +136,15 @@
 				B15A9AAC182E7F6E00CCD141 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B15A9AC2182E887F00CCD141 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				B15A9AC7182E893400CCD141 /* MapViewController.h */,
+				B15A9AC8182E893400CCD141 /* MapViewController.m */,
+			);
+			name = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +219,7 @@
 				B15A9AB6182E7F6E00CCD141 /* Mobilecko.xcdatamodeld in Sources */,
 				B15A9AB9182E7F6E00CCD141 /* MasterViewController.m in Sources */,
 				B15A9ABC182E7F6E00CCD141 /* DetailViewController.m in Sources */,
+				B15A9AC9182E893400CCD141 /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +314,10 @@
 		B15A9AC0182E7F6E00CCD141 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mobilecko/Mobilecko-Prefix.pch";
 				INFOPLIST_FILE = "Mobilecko/Mobilecko-Info.plist";
@@ -299,6 +329,10 @@
 		B15A9AC1182E7F6E00CCD141 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mobilecko/Mobilecko-Prefix.pch";
 				INFOPLIST_FILE = "Mobilecko/Mobilecko-Info.plist";
@@ -326,6 +360,7 @@
 				B15A9AC1182E7F6E00CCD141 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

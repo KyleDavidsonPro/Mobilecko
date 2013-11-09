@@ -12,7 +12,12 @@
 
 #import <CoreData/CoreData.h>
 
-@interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate> {
+    //Declare the menu
+    NSArray *menu;
+    UINavigationController *detailNavController;
+    
+}
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 
