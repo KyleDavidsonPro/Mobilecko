@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B13B0663188EDE800085B111 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = B13B0662188EDE800085B111 /* Event.m */; };
 		B15A9A95182E7F6E00CCD141 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15A9A94182E7F6E00CCD141 /* UIKit.framework */; };
 		B15A9A97182E7F6E00CCD141 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15A9A96182E7F6E00CCD141 /* Foundation.framework */; };
 		B15A9A99182E7F6E00CCD141 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15A9A98182E7F6E00CCD141 /* CoreGraphics.framework */; };
@@ -37,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B13B0661188EDE800085B111 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		B13B0662188EDE800085B111 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		B15A9A91182E7F6E00CCD141 /* Mobilecko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mobilecko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B15A9A94182E7F6E00CCD141 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B15A9A96182E7F6E00CCD141 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -151,6 +154,8 @@
 				B15A9ABA182E7F6E00CCD141 /* DetailViewController.h */,
 				B15A9ABB182E7F6E00CCD141 /* DetailViewController.m */,
 				B15A9AB4182E7F6E00CCD141 /* Mobilecko.xcdatamodeld */,
+				B13B0661188EDE800085B111 /* Event.h */,
+				B13B0662188EDE800085B111 /* Event.m */,
 				B15A9A9D182E7F6E00CCD141 /* Supporting Files */,
 			);
 			path = Mobilecko;
@@ -252,6 +257,7 @@
 				B15A9AB9182E7F6E00CCD141 /* MasterViewController.m in Sources */,
 				B15A9ABC182E7F6E00CCD141 /* DetailViewController.m in Sources */,
 				B15A9AC9182E893400CCD141 /* MapViewController.m in Sources */,
+				B13B0663188EDE800085B111 /* Event.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

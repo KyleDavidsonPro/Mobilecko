@@ -29,7 +29,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    menu = [NSArray arrayWithObjects:@"Map", @"Detail", nil];
+    menu = [NSArray arrayWithObjects:@"Events", @"Map", nil];
     detailNavController = [self.splitViewController.viewControllers lastObject];
 
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];

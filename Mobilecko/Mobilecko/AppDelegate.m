@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 #import "MasterViewController.h"
+#import "Event.h"
 
 @implementation AppDelegate
 
@@ -27,18 +28,74 @@
         UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
         MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
-    } else {
-        UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-        MasterViewController *controller = (MasterViewController *)navigationController.topViewController;
-        controller.managedObjectContext = self.managedObjectContext;
-    }
+    } 
     
     //Parse set up
     [Parse setApplicationId:@"ZJXP9PAIaXLxa5pNA8f7jMTuU6fKDYal0AZs6oIS"
                   clientKey:@"gEkgyu15tzjfGdZLBuHD1fLBXH4Nnpw0eivZhT5F"];
+    
+    //Log in giveblood
+    [PFUser logInWithUsernameInBackground:@"GiveBlood NI" password:@"pass"
+                                    block:^(PFUser *user, NSError *error) {
+                                        if (user) {
+                                            NSLog((@"Login Successful!"));
+                                            //Update core data
+                                            PFQuery *query = [PFQuery queryWithClassName:@"Event"];
+                                            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                                                if (!error) {
+                                                    // IF succeded, nuke core data
+                                                    [self nukeCoreDataObject:@"Event"];
+                                                    
+                                                    NSLog(@"Successfully retrieved %d events.", objects.count);
+                                                    // Do something with the found objects
+                                                    for (PFObject *object in objects) {
+                                                        [self syncParseToCoreDataWithObject:object];
+                                                    }
+                                                    NSError *error;
+                                                    if (![self.managedObjectContext save:&error]) {
+                                                        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+                                                    }
+                                                } else {
+                                                    // Log details of the failure
+                                                    NSLog(@"Error: %@ %@", error, [error userInfo]);
+                                                }
+                                            }];
+
+                                        } else {
+                                            NSLog((@"Login Failed"));
+                                        }
+                                    }];
+    
+    
     return YES;
 }
-							
+
+- (void)nukeCoreDataObject:(NSString *)object {
+    
+    NSManagedObjectContext * context = [self managedObjectContext];
+    NSFetchRequest * fetch = [[NSFetchRequest alloc] init];
+    [fetch setEntity:[NSEntityDescription entityForName:object inManagedObjectContext:context]];
+    NSArray * result = [context executeFetchRequest:fetch error:nil];
+    for (id record in result) {
+        [context deleteObject:record];
+    }
+    
+}
+
+- (void)syncParseToCoreDataWithObject:(PFObject *)parseObject {
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZ"];
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    Event *event = [NSEntityDescription
+                                      insertNewObjectForEntityForName:@"Event"
+                                      inManagedObjectContext:context];
+    event.name = parseObject[@"name"];
+    event.address = parseObject[@"address"];
+    event.date = [dateFormat dateFromString:parseObject[@"date"]];
+    
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
