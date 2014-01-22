@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface MapViewController : UIViewController <CLLocationManagerDelegate,MKMapViewDelegate> {
+@interface MapViewController : UIViewController <CLLocationManagerDelegate,MKMapViewDelegate, NSFetchedResultsControllerDelegate> {
     
     CLLocationManager *locationManager;
     MKMapView *mapView;
@@ -18,5 +18,5 @@
 }
 
 @property (nonatomic,retain) IBOutlet MKMapView *mapView;
-
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @end

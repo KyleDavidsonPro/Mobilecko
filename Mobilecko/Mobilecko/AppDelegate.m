@@ -84,14 +84,19 @@
 
 - (void)syncParseToCoreDataWithObject:(PFObject *)parseObject {
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZ"];
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
     
     NSManagedObjectContext *context = [self managedObjectContext];
     Event *event = [NSEntityDescription
                                       insertNewObjectForEntityForName:@"Event"
                                       inManagedObjectContext:context];
+    
+    PFGeoPoint *geoTest = parseObject[@"geoLocation"];
+    
     event.name = parseObject[@"name"];
     event.address = parseObject[@"address"];
+    event.latitude = [NSNumber numberWithDouble:geoTest.latitude];
+    event.longitude = [NSNumber numberWithDouble:geoTest.longitude];
     event.date = [dateFormat dateFromString:parseObject[@"date"]];
     
 }
