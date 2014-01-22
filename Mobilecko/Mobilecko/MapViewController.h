@@ -19,4 +19,5 @@
 
 @property (nonatomic,retain) IBOutlet MKMapView *mapView;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, retain) CLLocationManager *locationManager;
 @end

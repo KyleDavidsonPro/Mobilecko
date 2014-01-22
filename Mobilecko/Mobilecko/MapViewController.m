@@ -16,6 +16,7 @@
 
 @implementation MapViewController
 @synthesize mapView;
+@synthesize locationManager;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -65,6 +66,11 @@
     [locationManager setDelegate:self];
     [locationManager setDistanceFilter:kCLDistanceFilterNone];
     [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+    
+    if ([CLLocationManager locationServicesEnabled]) {
+        // Find the current location
+        [self.locationManager startMonitoringSignificantLocationChanges];
+    }
 
     [self.mapView setShowsUserLocation:YES];
     
@@ -115,6 +121,25 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Background Location Tracking
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    // locations contains an array of recent locations, but this app only cares about the most recent
+    // which is also "manager.location"
+    CLLocation *updatedLocation = manager.location;
+
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"Location manager failed with error: %@", error);
+    if ([error.domain isEqualToString:kCLErrorDomain] && error.code == kCLErrorDenied) {
+        //user denied location services so stop updating manager
+        [manager stopUpdatingLocation];
+            
+    }
 }
 
 @end
