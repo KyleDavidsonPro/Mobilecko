@@ -64,8 +64,6 @@
     locationManager = [[CLLocationManager alloc] init];
 
     [locationManager setDelegate:self];
-    [locationManager setDistanceFilter:kCLDistanceFilterNone];
-    [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
     
     if ([CLLocationManager locationServicesEnabled]) {
         // Find the current location
@@ -73,6 +71,7 @@
     }
 
     [self.mapView setShowsUserLocation:YES];
+    
     
     
     NSError *error;
@@ -86,20 +85,6 @@
     for (Event *event in [self.fetchedResultsController fetchedObjects]) {
         [self placeMarkerForEvent:event];
     }
-    
-    //Focus on last marker placed
-    CLLocationCoordinate2D zoomLocation;
-    Event *lastEvent = [[self.fetchedResultsController fetchedObjects] lastObject];
-    zoomLocation.latitude = [[lastEvent latitude] doubleValue];
-    zoomLocation.longitude= [[lastEvent longitude] doubleValue];
-    
-    // 2
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
-    
-    // 3
-    [self.mapView setRegion:viewRegion animated:YES];
-    
-
 
 }
 
@@ -114,7 +99,6 @@
     annotationPoint.title = event.name;
     annotationPoint.subtitle = event.address;
     [self.mapView addAnnotation:annotationPoint];
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -142,7 +126,12 @@
         CLLocationDistance dist = [updatedLocation distanceFromLocation:loc2];
         //If the events are around a 1 mile radious
         if (dist < 2500) {
-            
+            UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+            localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
+            localNotification.alertBody = @"You are near an upcoming blood donation.";
+            localNotification.timeZone = [NSTimeZone defaultTimeZone];
+            [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+
         }
         
     }
@@ -158,6 +147,56 @@
         //user denied location services so stop updating manager
         [manager stopUpdatingLocation];
     }
+}
+
+
+#pragma mark - Updating map
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+}
+
+- (void)controller:(NSFetchedResultsController *)controller
+   didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath
+     forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath
+{
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            [self fetchedResultsChangeInsert:anObject];
+            break;
+        case NSFetchedResultsChangeDelete:
+            [self fetchedResultsChangeDelete:anObject];
+            break;
+        case NSFetchedResultsChangeUpdate:
+            [self fetchedResultsChangeUpdate:anObject];
+            break;
+        case NSFetchedResultsChangeMove:
+            // do nothing
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)fetchedResultsChangeInsert:(Event *)event
+{
+    [self placeMarkerForEvent:event];
+}
+
+- (void)fetchedResultsChangeDelete:(Event *)event
+{
+    //todo
+}
+
+- (void)fetchedResultsChangeUpdate:(Event *)event
+{
+    //todo
 }
 
 @end
