@@ -129,6 +129,25 @@
     // locations contains an array of recent locations, but this app only cares about the most recent
     // which is also "manager.location"
     CLLocation *updatedLocation = manager.location;
+    
+    //Plot markers
+    for (Event *event in [self.fetchedResultsController fetchedObjects]) {
+        CLLocationCoordinate2D eventLocation;
+        eventLocation.latitude = [[event latitude] doubleValue];
+        eventLocation.longitude= [[event longitude] doubleValue];
+        
+        CLLocation *loc2 = [[CLLocation alloc] initWithLatitude:eventLocation.latitude longitude:eventLocation.longitude];
+        
+        //Compare current position distance from all events
+        CLLocationDistance dist = [updatedLocation distanceFromLocation:loc2];
+        //If the events are around a 1 mile radious
+        if (dist < 2500) {
+            
+        }
+        
+    }
+
+    
 
 }
 
@@ -138,7 +157,6 @@
     if ([error.domain isEqualToString:kCLErrorDomain] && error.code == kCLErrorDenied) {
         //user denied location services so stop updating manager
         [manager stopUpdatingLocation];
-            
     }
 }
 
