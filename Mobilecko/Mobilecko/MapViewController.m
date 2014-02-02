@@ -81,24 +81,26 @@
         exit(-1);  // Fail
     }
     
-    //Plot markers
-    for (Event *event in [self.fetchedResultsController fetchedObjects]) {
-        [self placeMarkerForEvent:event];
-    }
+    [self placeMarkersForEvents];
 
 }
 
-- (void)placeMarkerForEvent:(Event *)event {
-    CLLocationCoordinate2D annotationCoord;
-    
-    annotationCoord.latitude = [event.latitude doubleValue];
-    annotationCoord.longitude = [event.longitude doubleValue];
-    
-    MKPointAnnotation *annotationPoint = [[MKPointAnnotation alloc] init];
-    annotationPoint.coordinate = annotationCoord;
-    annotationPoint.title = event.name;
-    annotationPoint.subtitle = event.address;
-    [self.mapView addAnnotation:annotationPoint];
+- (void)placeMarkersForEvents {
+    [self.mapView removeAnnotations:mapView.annotations];
+    //Plot markers
+    for (Event *event in [self.fetchedResultsController fetchedObjects]) {
+     
+        CLLocationCoordinate2D annotationCoord;
+        
+        annotationCoord.latitude = [event.latitude doubleValue];
+        annotationCoord.longitude = [event.longitude doubleValue];
+        
+        MKPointAnnotation *annotationPoint = [[MKPointAnnotation alloc] init];
+        annotationPoint.coordinate = annotationCoord;
+        annotationPoint.title = event.name;
+        annotationPoint.subtitle = event.address;
+        [self.mapView addAnnotation:annotationPoint];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -167,13 +169,13 @@
 {
     switch (type) {
         case NSFetchedResultsChangeInsert:
-            [self fetchedResultsChangeInsert:anObject];
+            [self placeMarkersForEvents];
             break;
         case NSFetchedResultsChangeDelete:
-            [self fetchedResultsChangeDelete:anObject];
+            [self placeMarkersForEvents];
             break;
         case NSFetchedResultsChangeUpdate:
-            [self fetchedResultsChangeUpdate:anObject];
+            [self placeMarkersForEvents];
             break;
         case NSFetchedResultsChangeMove:
             // do nothing
@@ -182,21 +184,6 @@
         default:
             break;
     }
-}
-
-- (void)fetchedResultsChangeInsert:(Event *)event
-{
-    [self placeMarkerForEvent:event];
-}
-
-- (void)fetchedResultsChangeDelete:(Event *)event
-{
-    //todo
-}
-
-- (void)fetchedResultsChangeUpdate:(Event *)event
-{
-    //todo
 }
 
 @end
