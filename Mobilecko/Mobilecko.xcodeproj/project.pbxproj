@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B1306104189FF12800448B59 /* bloodbag.png in Resources */ = {isa = PBXBuildFile; fileRef = B1306103189FF12800448B59 /* bloodbag.png */; };
+		B1306106189FF13300448B59 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = B1306105189FF13300448B59 /* map.png */; };
+		B1306109189FF61700448B59 /* EventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1306108189FF61700448B59 /* EventDetailViewController.m */; };
 		B13B0663188EDE800085B111 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = B13B0662188EDE800085B111 /* Event.m */; };
 		B15A9A95182E7F6E00CCD141 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15A9A94182E7F6E00CCD141 /* UIKit.framework */; };
 		B15A9A97182E7F6E00CCD141 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15A9A96182E7F6E00CCD141 /* Foundation.framework */; };
@@ -38,6 +41,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B1306103189FF12800448B59 /* bloodbag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bloodbag.png; sourceTree = "<group>"; };
+		B1306105189FF13300448B59 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
+		B1306107189FF61700448B59 /* EventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailViewController.h; sourceTree = "<group>"; };
+		B1306108189FF61700448B59 /* EventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailViewController.m; sourceTree = "<group>"; };
 		B13B0661188EDE800085B111 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		B13B0662188EDE800085B111 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		B15A9A91182E7F6E00CCD141 /* Mobilecko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mobilecko.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +164,8 @@
 				B13B0661188EDE800085B111 /* Event.h */,
 				B13B0662188EDE800085B111 /* Event.m */,
 				B15A9A9D182E7F6E00CCD141 /* Supporting Files */,
+				B1306107189FF61700448B59 /* EventDetailViewController.h */,
+				B1306108189FF61700448B59 /* EventDetailViewController.m */,
 			);
 			path = Mobilecko;
 			sourceTree = "<group>";
@@ -164,6 +173,8 @@
 		B15A9A9D182E7F6E00CCD141 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B1306105189FF13300448B59 /* map.png */,
+				B1306103189FF12800448B59 /* bloodbag.png */,
 				B15A9A9E182E7F6E00CCD141 /* Mobilecko-Info.plist */,
 				B15A9A9F182E7F6E00CCD141 /* InfoPlist.strings */,
 				B15A9AA2182E7F6E00CCD141 /* main.m */,
@@ -235,10 +246,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1306104189FF12800448B59 /* bloodbag.png in Resources */,
 				B15A9AA1182E7F6E00CCD141 /* InfoPlist.strings in Resources */,
 				B15A9AA9182E7F6E00CCD141 /* Default.png in Resources */,
 				B15A9AAB182E7F6E00CCD141 /* Default@2x.png in Resources */,
 				B15A9AAD182E7F6E00CCD141 /* Default-568h@2x.png in Resources */,
+				B1306106189FF13300448B59 /* map.png in Resources */,
 				B15A9AB0182E7F6E00CCD141 /* MainStoryboard_iPhone.storyboard in Resources */,
 				B15A9AB3182E7F6E00CCD141 /* MainStoryboard_iPad.storyboard in Resources */,
 			);
@@ -253,6 +266,7 @@
 			files = (
 				B15A9AA3182E7F6E00CCD141 /* main.m in Sources */,
 				B15A9AA7182E7F6E00CCD141 /* AppDelegate.m in Sources */,
+				B1306109189FF61700448B59 /* EventDetailViewController.m in Sources */,
 				B15A9AB6182E7F6E00CCD141 /* Mobilecko.xcdatamodeld in Sources */,
 				B15A9AB9182E7F6E00CCD141 /* MasterViewController.m in Sources */,
 				B15A9ABC182E7F6E00CCD141 /* DetailViewController.m in Sources */,

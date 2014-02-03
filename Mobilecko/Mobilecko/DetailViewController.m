@@ -10,6 +10,8 @@
 #import <Parse/Parse.h>
 #import "AppDelegate.h"
 #import "Event.h"
+#import "EventDetailViewController.h"
+
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 @end
@@ -123,7 +125,9 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     Event *info = [_fetchedResultsController objectAtIndexPath:indexPath];
+    NSString *newAddress = [[info.address componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@" "];
     cell.textLabel.text = info.name;
+    cell.detailTextLabel.text = newAddress;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -134,6 +138,29 @@
     [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 70;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Make sure your segue name in storyboard is the same as this line
+    if ([[segue identifier] isEqualToString:@"EventDetail"])
+    {
+        
+        NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+        Event *selectedEvent = [self.fetchedResultsController objectAtIndexPath:path];
+        
+        // Get reference to the destination view controller
+        EventDetailViewController *vc = [segue destinationViewController];
+        vc.event = selectedEvent;
+        // Pass any objects to the view controller here, like...
+        
+    }
 }
 
 #pragma mark - NSFetchedMethods

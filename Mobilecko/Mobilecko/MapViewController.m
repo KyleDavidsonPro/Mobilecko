@@ -98,7 +98,9 @@
         MKPointAnnotation *annotationPoint = [[MKPointAnnotation alloc] init];
         annotationPoint.coordinate = annotationCoord;
         annotationPoint.title = event.name;
-        annotationPoint.subtitle = event.address;
+        NSString *newAddress = [[event.address componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@" "];
+        
+        annotationPoint.subtitle = newAddress;
         [self.mapView addAnnotation:annotationPoint];
     }
 }
