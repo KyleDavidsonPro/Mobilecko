@@ -38,6 +38,7 @@
 		B15A9AD7182E92CF00CCD141 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15A9AD6182E92CF00CCD141 /* Security.framework */; };
 		B15A9AD9182E92D500CCD141 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15A9AD8182E92D500CCD141 /* StoreKit.framework */; };
 		B15A9ADB182E92DD00CCD141 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15A9ADA182E92DD00CCD141 /* SystemConfiguration.framework */; };
+		B1AC234B18CF7D650070377C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1AC234A18CF7D650070377C /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		B15A9AD6182E92CF00CCD141 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		B15A9AD8182E92D500CCD141 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		B15A9ADA182E92DD00CCD141 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B1AC234A18CF7D650070377C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				B15A9A95182E7F6E00CCD141 /* UIKit.framework in Frameworks */,
 				B15A9A97182E7F6E00CCD141 /* Foundation.framework in Frameworks */,
 				B15A9A99182E7F6E00CCD141 /* CoreGraphics.framework in Frameworks */,
+				B1AC234B18CF7D650070377C /* FacebookSDK.framework in Frameworks */,
 				B15A9A9B182E7F6E00CCD141 /* CoreData.framework in Frameworks */,
 				B15A9ACB182E925900CCD141 /* Parse.framework in Frameworks */,
 			);
@@ -140,6 +143,7 @@
 		B15A9A93182E7F6E00CCD141 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B1AC234A18CF7D650070377C /* FacebookSDK.framework */,
 				B15A9A94182E7F6E00CCD141 /* UIKit.framework */,
 				B15A9A96182E7F6E00CCD141 /* Foundation.framework */,
 				B15A9A98182E7F6E00CCD141 /* CoreGraphics.framework */,
@@ -368,7 +372,8 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
+					/Users/jamieohara/Mobilecko/Mobilecko,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mobilecko/Mobilecko-Prefix.pch";
@@ -383,7 +388,8 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
+					/Users/jamieohara/Mobilecko/Mobilecko,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mobilecko/Mobilecko-Prefix.pch";

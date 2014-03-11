@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import <FacebookSDK/FacebookSDK.h>
 #import "MasterViewController.h"
 #import "Event.h"
 
@@ -29,11 +29,10 @@
         MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
     } 
-    
+    [[NSBundle mainBundle] bundleIdentifier];
     //Parse set up
     [Parse setApplicationId:@"ZJXP9PAIaXLxa5pNA8f7jMTuU6fKDYal0AZs6oIS"
-                  clientKey:@"gEkgyu15tzjfGdZLBuHD1fLBXH4Nnpw0eivZhT5F"];
-    
+                  clientKey:@"gEkgyu15tzjfGdZLBuHD1fLBXH4Nnpw0eivZhT5F"];    
     //Log in giveblood
     [PFUser logInWithUsernameInBackground:@"GiveBlood NI" password:@"pass"
                                     block:^(PFUser *user, NSError *error) {
