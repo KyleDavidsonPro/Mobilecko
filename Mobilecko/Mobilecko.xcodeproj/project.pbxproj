@@ -39,6 +39,7 @@
 		B15A9AD9182E92D500CCD141 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15A9AD8182E92D500CCD141 /* StoreKit.framework */; };
 		B15A9ADB182E92DD00CCD141 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15A9ADA182E92DD00CCD141 /* SystemConfiguration.framework */; };
 		B1AC234B18CF7D650070377C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1AC234A18CF7D650070377C /* FacebookSDK.framework */; };
+		B1AC234F18CF7ECF0070377C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1AC234E18CF7ECF0070377C /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,8 @@
 		B15A9AD8182E92D500CCD141 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		B15A9ADA182E92DD00CCD141 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B1AC234A18CF7D650070377C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		B1AC234D18CF7ECF0070377C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		B1AC234E18CF7ECF0070377C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +158,7 @@
 		B15A9A9C182E7F6E00CCD141 /* Mobilecko */ = {
 			isa = PBXGroup;
 			children = (
+				B1AC234C18CF7EC40070377C /* Login */,
 				B15A9AC2182E887F00CCD141 /* Map */,
 				B15A9AA5182E7F6E00CCD141 /* AppDelegate.h */,
 				B15A9AA6182E7F6E00CCD141 /* AppDelegate.m */,
@@ -197,6 +201,15 @@
 				B15A9AC8182E893400CCD141 /* MapViewController.m */,
 			);
 			name = Map;
+			sourceTree = "<group>";
+		};
+		B1AC234C18CF7EC40070377C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B1AC234D18CF7ECF0070377C /* LoginViewController.h */,
+				B1AC234E18CF7ECF0070377C /* LoginViewController.m */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +286,7 @@
 				B1306109189FF61700448B59 /* EventDetailViewController.m in Sources */,
 				B15A9AB6182E7F6E00CCD141 /* Mobilecko.xcdatamodeld in Sources */,
 				B15A9AB9182E7F6E00CCD141 /* MasterViewController.m in Sources */,
+				B1AC234F18CF7ECF0070377C /* LoginViewController.m in Sources */,
 				B15A9ABC182E7F6E00CCD141 /* DetailViewController.m in Sources */,
 				B15A9AC9182E893400CCD141 /* MapViewController.m in Sources */,
 				B13B0663188EDE800085B111 /* Event.m in Sources */,

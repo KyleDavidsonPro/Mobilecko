@@ -29,7 +29,9 @@
         MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
     } 
-    [[NSBundle mainBundle] bundleIdentifier];
+    // Override point for customization after application launch.
+    [FBLoginView class];
+    [FBProfilePictureView class];
     //Parse set up
     [Parse setApplicationId:@"ZJXP9PAIaXLxa5pNA8f7jMTuU6fKDYal0AZs6oIS"
                   clientKey:@"gEkgyu15tzjfGdZLBuHD1fLBXH4Nnpw0eivZhT5F"];    
@@ -246,4 +248,17 @@
     application.applicationIconBadgeNumber = 0;
 }
 
+#pragma mark - FB Response
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    
+    // Call FBAppCall's handleOpenURL:sourceApplication to handle Facebook app responses
+    BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+    
+    // You can add your app-specific url handling code here if needed
+    
+    return wasHandled;
+}
 @end
