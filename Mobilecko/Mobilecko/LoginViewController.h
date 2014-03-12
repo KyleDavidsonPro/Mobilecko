@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import "User.h"
+#import "ProfileViewController.h"
+#import "MapViewController.h"
 
-@interface LoginViewController : UIViewController <FBLoginViewDelegate>
+@interface LoginViewController : UIViewController <FBLoginViewDelegate> {
+    User *currentUser;
+}
 
 @property (nonatomic, retain) IBOutlet FBLoginView *fbLogin;
 @property (strong, nonatomic) IBOutlet FBProfilePictureView *profilePictureView;

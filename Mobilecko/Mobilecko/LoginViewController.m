@@ -7,7 +7,8 @@
 //
 
 #import "LoginViewController.h"
-
+#import "User.h"
+#import "AppDelegate.h"
 
 
 @interface LoginViewController ()
@@ -48,7 +49,13 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"Login"]) {
-        //Pass data here
+        UITabBarController *tab = [segue destinationViewController];
+        UITabBarItem *profileTab = [tab.tabBar.items lastObject];
+        if (!currentUser.fbProfileId) {
+            [profileTab setEnabled:NO];
+        } else {
+            [profileTab setEnabled:YES];
+        }
     }
 }
 
@@ -58,11 +65,44 @@
                             user:(id<FBGraphUser>)user {
     self.profilePictureView.profileID = user.id;
     self.nameLabel.text = user.name;
+    
+    //Create/Set current user
+    AppDelegate *del = [[UIApplication sharedApplication] delegate];
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription
+                                              entityForName:@"User" inManagedObjectContext:[del managedObjectContext]];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              @"fbProfileId == %@", user.id];
+    [request setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSUInteger count = [[del managedObjectContext] countForFetchRequest:request
+                                                            error:&error];
+    if (count == NSNotFound) {
+        NSLog(@"Error: %@", error);
+    } else if (count == 0) {
+        User *newUser = [NSEntityDescription
+                        insertNewObjectForEntityForName:@"User"
+                        inManagedObjectContext:[del managedObjectContext]];
+        newUser.name = user.name;
+        newUser.fbProfileId = user.id;
+        currentUser = newUser;
+    } else {
+        currentUser = [[[del managedObjectContext] executeFetchRequest:request error:nil] lastObject];
+    }
+    
+    //dont forget to save
+    [del saveContext];
+    
+
 }
 
 // Logged-in user experience
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
     self.statusLabel.text = @"You're logged in as";
+    [self performSegueWithIdentifier:@"Login" sender:self];
 }
 
 // Logged-out user experience

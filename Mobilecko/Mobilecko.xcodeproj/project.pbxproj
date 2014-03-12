@@ -40,6 +40,8 @@
 		B15A9ADB182E92DD00CCD141 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15A9ADA182E92DD00CCD141 /* SystemConfiguration.framework */; };
 		B1AC234B18CF7D650070377C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1AC234A18CF7D650070377C /* FacebookSDK.framework */; };
 		B1AC234F18CF7ECF0070377C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1AC234E18CF7ECF0070377C /* LoginViewController.m */; };
+		B1AC235818D0C3920070377C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B1AC235718D0C3920070377C /* User.m */; };
+		B1AC235B18D0CB880070377C /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1AC235A18D0CB880070377C /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +88,10 @@
 		B1AC234A18CF7D650070377C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		B1AC234D18CF7ECF0070377C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		B1AC234E18CF7ECF0070377C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		B1AC235618D0C3920070377C /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		B1AC235718D0C3920070377C /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		B1AC235918D0CB870070377C /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		B1AC235A18D0CB880070377C /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,11 +175,15 @@
 				B15A9ABA182E7F6E00CCD141 /* DetailViewController.h */,
 				B15A9ABB182E7F6E00CCD141 /* DetailViewController.m */,
 				B15A9AB4182E7F6E00CCD141 /* Mobilecko.xcdatamodeld */,
+				B1AC235618D0C3920070377C /* User.h */,
+				B1AC235718D0C3920070377C /* User.m */,
 				B13B0661188EDE800085B111 /* Event.h */,
 				B13B0662188EDE800085B111 /* Event.m */,
 				B15A9A9D182E7F6E00CCD141 /* Supporting Files */,
 				B1306107189FF61700448B59 /* EventDetailViewController.h */,
 				B1306108189FF61700448B59 /* EventDetailViewController.m */,
+				B1AC235918D0CB870070377C /* ProfileViewController.h */,
+				B1AC235A18D0CB880070377C /* ProfileViewController.m */,
 			);
 			path = Mobilecko;
 			sourceTree = "<group>";
@@ -281,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1AC235818D0C3920070377C /* User.m in Sources */,
 				B15A9AA3182E7F6E00CCD141 /* main.m in Sources */,
 				B15A9AA7182E7F6E00CCD141 /* AppDelegate.m in Sources */,
 				B1306109189FF61700448B59 /* EventDetailViewController.m in Sources */,
@@ -288,6 +299,7 @@
 				B15A9AB9182E7F6E00CCD141 /* MasterViewController.m in Sources */,
 				B1AC234F18CF7ECF0070377C /* LoginViewController.m in Sources */,
 				B15A9ABC182E7F6E00CCD141 /* DetailViewController.m in Sources */,
+				B1AC235B18D0CB880070377C /* ProfileViewController.m in Sources */,
 				B15A9AC9182E893400CCD141 /* MapViewController.m in Sources */,
 				B13B0663188EDE800085B111 /* Event.m in Sources */,
 			);

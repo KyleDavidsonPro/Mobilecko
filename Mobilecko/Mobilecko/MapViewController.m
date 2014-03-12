@@ -100,7 +100,7 @@
         annotationPoint.title = event.name;
         NSString *newAddress = [[event.address componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@" "];
         
-        annotationPoint.subtitle = newAddress;
+     
         [self.mapView addAnnotation:annotationPoint];
     }
 }
@@ -135,6 +135,7 @@
             localNotification.alertBody = @"You are near an upcoming blood donation.";
             localNotification.timeZone = [NSTimeZone defaultTimeZone];
             [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+            return;
 
         }
         

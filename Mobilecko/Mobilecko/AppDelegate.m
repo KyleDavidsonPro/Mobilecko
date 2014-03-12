@@ -92,7 +92,7 @@
 
 - (void)syncParseToCoreDataWithObject:(PFObject *)parseObject {
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    [dateFormat setDateFormat:@"dd MMM yyyy"];
     
     NSManagedObjectContext *context = [self managedObjectContext];
     Event *event = [NSEntityDescription
@@ -100,9 +100,19 @@
                                       inManagedObjectContext:context];
     
     PFGeoPoint *geoTest = parseObject[@"geoLocation"];
+    //Parse event addresses into readable format (dealing with trailing whitespace and html)
+    NSString *cleanAddressTags = [parseObject[@"address"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *cleanAddress = [cleanAddressTags stringByReplacingOccurrencesOfString: @"</br>" withString: @"\n"];
     
-    event.name = parseObject[@"name"];
-    event.address = parseObject[@"address"];
+    NSString *eventName = [parseObject[@"name"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    NSError *error = nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"  +" options:NSRegularExpressionCaseInsensitive error:&error];
+    
+    NSString *cleanName = [regex stringByReplacingMatchesInString:eventName options:0 range:NSMakeRange(0, [eventName length]) withTemplate:@" "];
+    
+    event.name = cleanName;
+    event.address = cleanAddress;
     event.latitude = [NSNumber numberWithDouble:geoTest.latitude];
     event.longitude = [NSNumber numberWithDouble:geoTest.longitude];
     event.date = [dateFormat dateFromString:parseObject[@"date"]];
@@ -237,7 +247,7 @@
 {
     UIApplicationState state = [application applicationState];
     if (state == UIApplicationStateActive) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Reminder"
+       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Reminder"
                                                         message:notification.alertBody
                                                        delegate:self cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];

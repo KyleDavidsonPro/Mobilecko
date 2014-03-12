@@ -127,7 +127,6 @@
     Event *info = [_fetchedResultsController objectAtIndexPath:indexPath];
     NSString *newAddress = [[info.address componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@" "];
     cell.textLabel.text = info.name;
-    cell.detailTextLabel.text = newAddress;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
