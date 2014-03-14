@@ -16,5 +16,7 @@
 @property(nonatomic, strong)IBOutlet UILabel *name;
 @property(nonatomic, strong)IBOutlet UILabel *address;
 @property(nonatomic, strong)IBOutlet UILabel *date;
+@property (strong, nonatomic) IBOutlet UIButton *attendBtn;
 
+- (IBAction)eventAttend;
 @end

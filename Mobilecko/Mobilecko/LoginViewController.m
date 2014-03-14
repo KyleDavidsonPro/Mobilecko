@@ -10,6 +10,7 @@
 #import "User.h"
 #import "AppDelegate.h"
 #import "ProfileViewController.h"
+#import "LoggedInUser.h"
 
 @interface LoginViewController ()
 
@@ -57,7 +58,7 @@
             [profileTab setEnabled:YES];
             ProfileViewController *pVC = (ProfileViewController *)[[tab viewControllers] lastObject];
             pVC.currentUser = currentUser;
-            
+            [[LoggedInUser sharedUser] setCurrentUser:currentUser];
         }
     }
 }

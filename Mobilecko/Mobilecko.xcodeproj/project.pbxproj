@@ -43,6 +43,7 @@
 		B1AC235B18D0CB880070377C /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1AC235A18D0CB880070377C /* ProfileViewController.m */; };
 		B1AC235D18D3601B0070377C /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = B1AC235C18D3601B0070377C /* user.png */; };
 		B1AC236118D364FE0070377C /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = B1AC236018D364FE0070377C /* Event.m */; };
+		B1AC236418D372CF0070377C /* LoggedInUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B1AC236318D372CF0070377C /* LoggedInUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,8 @@
 		B1AC235C18D3601B0070377C /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		B1AC235F18D364FE0070377C /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		B1AC236018D364FE0070377C /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		B1AC236218D372CF0070377C /* LoggedInUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggedInUser.h; sourceTree = "<group>"; };
+		B1AC236318D372CF0070377C /* LoggedInUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggedInUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +129,8 @@
 		B15A9A88182E7F6D00CCD141 = {
 			isa = PBXGroup;
 			children = (
+				B1AC236218D372CF0070377C /* LoggedInUser.h */,
+				B1AC236318D372CF0070377C /* LoggedInUser.m */,
 				B1AC235F18D364FE0070377C /* Event.h */,
 				B1AC236018D364FE0070377C /* Event.m */,
 				B15A9ADA182E92DD00CCD141 /* SystemConfiguration.framework */,
@@ -312,6 +317,7 @@
 				B15A9AB9182E7F6E00CCD141 /* MasterViewController.m in Sources */,
 				B1AC234F18CF7ECF0070377C /* LoginViewController.m in Sources */,
 				B15A9ABC182E7F6E00CCD141 /* DetailViewController.m in Sources */,
+				B1AC236418D372CF0070377C /* LoggedInUser.m in Sources */,
 				B1AC235B18D0CB880070377C /* ProfileViewController.m in Sources */,
 				B15A9AC9182E893400CCD141 /* MapViewController.m in Sources */,
 			);
