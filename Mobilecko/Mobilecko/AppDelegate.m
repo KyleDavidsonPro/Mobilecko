@@ -44,9 +44,6 @@
                                             PFQuery *query = [PFQuery queryWithClassName:@"Event"];
                                             [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                                                 if (!error) {
-                                                    // IF succeded, nuke core data
-                                                    [self nukeCoreDataObject:@"Event"];
-                                                    
                                                     NSLog(@"Successfully retrieved %d events.", objects.count);
                                                     // Do something with the found objects
                                                     for (PFObject *object in objects) {
@@ -91,20 +88,45 @@
 }
 
 - (void)syncParseToCoreDataWithObject:(PFObject *)parseObject {
+    //Check for existing object
+    NSEntityDescription *entityDescription = [NSEntityDescription
+                                              entityForName:@"Event" inManagedObjectContext:[self managedObjectContext]];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              @"syncID == %@", parseObject.objectId];
+    [request setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSUInteger count = [[self managedObjectContext] countForFetchRequest:request
+                                                                  error:&error];
+
+    //If this object doesnt exists in core data
+    if (count == 0) {
+        NSManagedObjectContext *context = [self managedObjectContext];
+        Event *newEvent = [NSEntityDescription
+                        insertNewObjectForEntityForName:@"Event"
+                        inManagedObjectContext:context];
+        [self updateCoreDataEvent:newEvent withParseEvent:parseObject];
+        
+    } else {
+        Event *currentEvent = [[[self managedObjectContext] executeFetchRequest:request error:nil] lastObject];
+        [self updateCoreDataEvent:currentEvent withParseEvent:parseObject];
+    }
+    
+  
+    
+}
+
+- (void)updateCoreDataEvent:(Event *)event withParseEvent:(PFObject *)parseEvent {
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"dd MMM yyyy"];
-    
-    NSManagedObjectContext *context = [self managedObjectContext];
-    Event *event = [NSEntityDescription
-                                      insertNewObjectForEntityForName:@"Event"
-                                      inManagedObjectContext:context];
-    
-    PFGeoPoint *geoTest = parseObject[@"geoLocation"];
+    PFGeoPoint *geoTest = parseEvent[@"geoLocation"];
     //Parse event addresses into readable format (dealing with trailing whitespace and html)
-    NSString *cleanAddressTags = [parseObject[@"address"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *cleanAddressTags = [parseEvent[@"address"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     NSString *cleanAddress = [cleanAddressTags stringByReplacingOccurrencesOfString: @"</br>" withString: @"\n"];
     
-    NSString *eventName = [parseObject[@"name"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *eventName = [parseEvent[@"name"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
     NSError *error = nil;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"  +" options:NSRegularExpressionCaseInsensitive error:&error];
@@ -115,8 +137,9 @@
     event.address = cleanAddress;
     event.latitude = [NSNumber numberWithDouble:geoTest.latitude];
     event.longitude = [NSNumber numberWithDouble:geoTest.longitude];
-    event.date = [dateFormat dateFromString:parseObject[@"date"]];
-    
+    event.date = [dateFormat dateFromString:parseEvent[@"date"]];
+    event.syncID = parseEvent.objectId;
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

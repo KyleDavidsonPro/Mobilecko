@@ -9,7 +9,7 @@
 #import "LoginViewController.h"
 #import "User.h"
 #import "AppDelegate.h"
-
+#import "ProfileViewController.h"
 
 @interface LoginViewController ()
 
@@ -55,6 +55,9 @@
             [profileTab setEnabled:NO];
         } else {
             [profileTab setEnabled:YES];
+            ProfileViewController *pVC = (ProfileViewController *)[[tab viewControllers] lastObject];
+            pVC.currentUser = currentUser;
+            
         }
     }
 }
@@ -96,13 +99,14 @@
     //dont forget to save
     [del saveContext];
     
+    [self performSegueWithIdentifier:@"Login" sender:self];
 
 }
 
 // Logged-in user experience
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
     self.statusLabel.text = @"You're logged in as";
-    [self performSegueWithIdentifier:@"Login" sender:self];
+
 }
 
 // Logged-out user experience
