@@ -43,19 +43,43 @@
 }
 
 - (IBAction)skipButton: (id)sender {
+    //Create/Set current user
+    AppDelegate *del = [[UIApplication sharedApplication] delegate];
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription
+                                              entityForName:@"User" inManagedObjectContext:[del managedObjectContext]];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              @"fbProfileId == %@", @"default"];
+    [request setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSUInteger count = [[del managedObjectContext] countForFetchRequest:request
+                                                                  error:&error];
+    if (count == NSNotFound) {
+        NSLog(@"Error: %@", error);
+    } else if (count == 0) {
+        User *newUser = [NSEntityDescription
+                         insertNewObjectForEntityForName:@"User"
+                         inManagedObjectContext:[del managedObjectContext]];
+        newUser.name = @"User";
+        newUser.fbProfileId = @"default";
+        currentUser = newUser;
+    } else {
+        currentUser = [[[del managedObjectContext] executeFetchRequest:request error:nil] lastObject];
+    }
+    
+    //dont forget to save
+    [del saveContext];
     
     [self performSegueWithIdentifier:@"Login" sender:self];
-    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"Login"]) {
         UITabBarController *tab = [segue destinationViewController];
-        UITabBarItem *profileTab = [tab.tabBar.items lastObject];
-        if (!currentUser.fbProfileId) {
-            [profileTab setEnabled:NO];
-        } else {
-            [profileTab setEnabled:YES];
+        if (currentUser.fbProfileId) {
             ProfileViewController *pVC = (ProfileViewController *)[[tab viewControllers] lastObject];
             pVC.currentUser = currentUser;
             [[LoggedInUser sharedUser] setCurrentUser:currentUser];

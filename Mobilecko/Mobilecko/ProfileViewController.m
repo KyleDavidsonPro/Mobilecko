@@ -28,9 +28,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if (currentUser) {
+        self.profilePictureView.profileID = currentUser.fbProfileId;
+        self.nameLabel.text = currentUser.name;
+    } else {
+        self.nameLabel.text = @"Your profile";
+    }
 
-    self.profilePictureView.profileID = currentUser.fbProfileId;
-    self.nameLabel.text = currentUser.name;
     
 	// Do any additional setup after loading the view.
 }

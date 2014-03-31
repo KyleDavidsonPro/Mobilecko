@@ -44,9 +44,8 @@
     
     date.text = stringFromDate;
     
-    if (![[LoggedInUser sharedUser] currentUser]) {
+    if ([[[[LoggedInUser sharedUser] currentUser] fbProfileId] isEqualToString:@"default"]) {
         [self.shareBtn setHidden:YES];
-        [self.attendSeg setHidden:YES];
     }
     
     if ([[[LoggedInUser sharedUser] currentUser].attending isEqual:event]) {

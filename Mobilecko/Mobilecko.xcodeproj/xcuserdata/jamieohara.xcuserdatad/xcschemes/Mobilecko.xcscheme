@@ -28,6 +28,16 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B17B20BF18E9ABC400EF916F"
+               BuildableName = "Mobilecko Tests.xctest"
+               BlueprintName = "Mobilecko Tests"
+               ReferencedContainer = "container:Mobilecko.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

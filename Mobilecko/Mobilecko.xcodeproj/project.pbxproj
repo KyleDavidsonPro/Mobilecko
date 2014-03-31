@@ -37,6 +37,11 @@
 		B15A9AD7182E92CF00CCD141 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15A9AD6182E92CF00CCD141 /* Security.framework */; };
 		B15A9AD9182E92D500CCD141 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15A9AD8182E92D500CCD141 /* StoreKit.framework */; };
 		B15A9ADB182E92DD00CCD141 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15A9ADA182E92DD00CCD141 /* SystemConfiguration.framework */; };
+		B170A0BF18E9B0E900B03A8A /* ModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B170A0BE18E9B0E900B03A8A /* ModelTests.m */; };
+		B17B20C118E9ABC400EF916F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B17B20BA18E9AB2A00EF916F /* XCTest.framework */; };
+		B17B20C218E9ABC400EF916F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15A9A96182E7F6E00CCD141 /* Foundation.framework */; };
+		B17B20C318E9ABC400EF916F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15A9A94182E7F6E00CCD141 /* UIKit.framework */; };
+		B17B20C918E9ABC400EF916F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B17B20C718E9ABC400EF916F /* InfoPlist.strings */; };
 		B19FA64618D75A2000567974 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B19FA64518D75A2000567974 /* User.m */; };
 		B19FA64918D75A2200567974 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = B19FA64818D75A2200567974 /* Event.m */; };
 		B1AC234B18CF7D650070377C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1AC234A18CF7D650070377C /* FacebookSDK.framework */; };
@@ -45,6 +50,16 @@
 		B1AC235D18D3601B0070377C /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = B1AC235C18D3601B0070377C /* user.png */; };
 		B1AC236418D372CF0070377C /* LoggedInUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B1AC236318D372CF0070377C /* LoggedInUser.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B17B20CD18E9ABC400EF916F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B15A9A89182E7F6D00CCD141 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B15A9A90182E7F6E00CCD141;
+			remoteInfo = Mobilecko;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		B1306103189FF12800448B59 /* bloodbag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bloodbag.png; sourceTree = "<group>"; };
@@ -85,6 +100,12 @@
 		B15A9AD6182E92CF00CCD141 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		B15A9AD8182E92D500CCD141 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		B15A9ADA182E92DD00CCD141 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B170A0BE18E9B0E900B03A8A /* ModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelTests.m; sourceTree = "<group>"; };
+		B17B20BA18E9AB2A00EF916F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		B17B20C018E9ABC400EF916F /* Mobilecko Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mobilecko Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B17B20C618E9ABC400EF916F /* Mobilecko Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mobilecko Tests-Info.plist"; sourceTree = "<group>"; };
+		B17B20C818E9ABC400EF916F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B17B20CC18E9ABC400EF916F /* Mobilecko Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mobilecko Tests-Prefix.pch"; sourceTree = "<group>"; };
 		B19FA64418D75A2000567974 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		B19FA64518D75A2000567974 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		B19FA64718D75A2200567974 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
@@ -123,12 +144,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B17B20BD18E9ABC400EF916F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B17B20C118E9ABC400EF916F /* XCTest.framework in Frameworks */,
+				B17B20C318E9ABC400EF916F /* UIKit.framework in Frameworks */,
+				B17B20C218E9ABC400EF916F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		B15A9A88182E7F6D00CCD141 = {
 			isa = PBXGroup;
 			children = (
+				B170A0BE18E9B0E900B03A8A /* ModelTests.m */,
 				B1AC236218D372CF0070377C /* LoggedInUser.h */,
 				B1AC236318D372CF0070377C /* LoggedInUser.m */,
 				B15A9ADA182E92DD00CCD141 /* SystemConfiguration.framework */,
@@ -142,6 +174,7 @@
 				B15A9AC5182E88ED00CCD141 /* CoreLocation.framework */,
 				B15A9AC3182E88E800CCD141 /* MapKit.framework */,
 				B15A9A9C182E7F6E00CCD141 /* Mobilecko */,
+				B17B20C418E9ABC400EF916F /* Mobilecko Tests */,
 				B15A9A93182E7F6E00CCD141 /* Frameworks */,
 				B15A9ACA182E925900CCD141 /* Parse.framework */,
 				B15A9A92182E7F6E00CCD141 /* Products */,
@@ -152,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				B15A9A91182E7F6E00CCD141 /* Mobilecko.app */,
+				B17B20C018E9ABC400EF916F /* Mobilecko Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -159,6 +193,7 @@
 		B15A9A93182E7F6E00CCD141 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B17B20BA18E9AB2A00EF916F /* XCTest.framework */,
 				B1AC234A18CF7D650070377C /* FacebookSDK.framework */,
 				B15A9A94182E7F6E00CCD141 /* UIKit.framework */,
 				B15A9A96182E7F6E00CCD141 /* Foundation.framework */,
@@ -175,7 +210,6 @@
 				B1AC235E18D3609B0070377C /* Profile */,
 				B1AC234C18CF7EC40070377C /* Login */,
 				B15A9AC2182E887F00CCD141 /* Map */,
-				B15A9AA5182E7F6E00CCD141 /* AppDelegate.h */,
 				B15A9AA6182E7F6E00CCD141 /* AppDelegate.m */,
 				B15A9AAE182E7F6E00CCD141 /* MainStoryboard_iPhone.storyboard */,
 				B15A9AB1182E7F6E00CCD141 /* MainStoryboard_iPad.storyboard */,
@@ -217,6 +251,24 @@
 			name = Map;
 			sourceTree = "<group>";
 		};
+		B17B20C418E9ABC400EF916F /* Mobilecko Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B17B20C518E9ABC400EF916F /* Supporting Files */,
+			);
+			path = "Mobilecko Tests";
+			sourceTree = "<group>";
+		};
+		B17B20C518E9ABC400EF916F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B17B20C618E9ABC400EF916F /* Mobilecko Tests-Info.plist */,
+				B17B20C718E9ABC400EF916F /* InfoPlist.strings */,
+				B17B20CC18E9ABC400EF916F /* Mobilecko Tests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		B19FA64318D759FE00567974 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +283,7 @@
 		B1AC234C18CF7EC40070377C /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				B15A9AA5182E7F6E00CCD141 /* AppDelegate.h */,
 				B1AC234D18CF7ECF0070377C /* LoginViewController.h */,
 				B1AC234E18CF7ECF0070377C /* LoginViewController.m */,
 			);
@@ -266,6 +319,24 @@
 			productReference = B15A9A91182E7F6E00CCD141 /* Mobilecko.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B17B20BF18E9ABC400EF916F /* Mobilecko Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B17B20CF18E9ABC400EF916F /* Build configuration list for PBXNativeTarget "Mobilecko Tests" */;
+			buildPhases = (
+				B17B20BC18E9ABC400EF916F /* Sources */,
+				B17B20BD18E9ABC400EF916F /* Frameworks */,
+				B17B20BE18E9ABC400EF916F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B17B20CE18E9ABC400EF916F /* PBXTargetDependency */,
+			);
+			name = "Mobilecko Tests";
+			productName = "Mobilecko Tests";
+			productReference = B17B20C018E9ABC400EF916F /* Mobilecko Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -274,6 +345,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Kyle Davidson";
+				TargetAttributes = {
+					B17B20BF18E9ABC400EF916F = {
+						TestTargetID = B15A9A90182E7F6E00CCD141;
+					};
+				};
 			};
 			buildConfigurationList = B15A9A8C182E7F6D00CCD141 /* Build configuration list for PBXProject "Mobilecko" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -288,6 +364,7 @@
 			projectRoot = "";
 			targets = (
 				B15A9A90182E7F6E00CCD141 /* Mobilecko */,
+				B17B20BF18E9ABC400EF916F /* Mobilecko Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -306,6 +383,14 @@
 				B1306106189FF13300448B59 /* map.png in Resources */,
 				B15A9AB0182E7F6E00CCD141 /* MainStoryboard_iPhone.storyboard in Resources */,
 				B15A9AB3182E7F6E00CCD141 /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B17B20BE18E9ABC400EF916F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B17B20C918E9ABC400EF916F /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,7 +416,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B17B20BC18E9ABC400EF916F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B170A0BF18E9B0E900B03A8A /* ModelTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B17B20CE18E9ABC400EF916F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B15A9A90182E7F6E00CCD141 /* Mobilecko */;
+			targetProxy = B17B20CD18E9ABC400EF916F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B15A9A9F182E7F6E00CCD141 /* InfoPlist.strings */ = {
@@ -356,6 +457,14 @@
 				B15A9AB2182E7F6E00CCD141 /* en */,
 			);
 			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		B17B20C718E9ABC400EF916F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B17B20C818E9ABC400EF916F /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -426,6 +535,7 @@
 					"$(inherited)",
 					"$(SRCROOT)",
 					/Users/jamieohara/Mobilecko/Mobilecko,
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mobilecko/Mobilecko-Prefix.pch";
@@ -442,12 +552,74 @@
 					"$(inherited)",
 					"$(SRCROOT)",
 					/Users/jamieohara/Mobilecko/Mobilecko,
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mobilecko/Mobilecko-Prefix.pch";
 				INFOPLIST_FILE = "Mobilecko/Mobilecko-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B17B20D018E9ABC400EF916F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Mobilecko.app/Mobilecko";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mobilecko Tests/Mobilecko Tests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "Mobilecko Tests/Mobilecko Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		B17B20D118E9ABC400EF916F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Mobilecko.app/Mobilecko";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mobilecko Tests/Mobilecko Tests-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "Mobilecko Tests/Mobilecko Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -468,6 +640,15 @@
 			buildConfigurations = (
 				B15A9AC0182E7F6E00CCD141 /* Debug */,
 				B15A9AC1182E7F6E00CCD141 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B17B20CF18E9ABC400EF916F /* Build configuration list for PBXNativeTarget "Mobilecko Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B17B20D018E9ABC400EF916F /* Debug */,
+				B17B20D118E9ABC400EF916F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
