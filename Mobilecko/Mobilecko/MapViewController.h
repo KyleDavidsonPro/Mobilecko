@@ -9,13 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
-
+#import "Event.h"
 @interface MapViewController : UIViewController <CLLocationManagerDelegate,MKMapViewDelegate, NSFetchedResultsControllerDelegate> {
     
     CLLocationManager *locationManager;
     MKMapView *mapView;
-
+    Event *selectedEvent;
 }
+
+- (void)infoButtonPressed:(id)sender;
 
 @property (nonatomic,retain) IBOutlet MKMapView *mapView;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;

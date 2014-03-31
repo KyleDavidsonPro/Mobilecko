@@ -9,6 +9,8 @@
 #import "MapViewController.h"
 #import "AppDelegate.h"
 #import "Event.h"
+#import "EventDetailViewController.h"
+
 @interface MapViewController ()
 
 @end
@@ -72,8 +74,6 @@
 
     [self.mapView setShowsUserLocation:YES];
     
-    
-    
     NSError *error;
     if (![self.fetchedResultsController performFetch:&error]) {
         // Update to handle the error appropriately.
@@ -83,6 +83,10 @@
     
     [self placeMarkersForEvents];
 
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 - (void)placeMarkersForEvents {
@@ -98,13 +102,61 @@
         MKPointAnnotation *annotationPoint = [[MKPointAnnotation alloc] init];
         annotationPoint.coordinate = annotationCoord;
         annotationPoint.title = event.name;
-        NSString *newAddress = [[event.address componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@" "];
-        
      
         [self.mapView addAnnotation:annotationPoint];
     }
 }
 
+- (MKAnnotationView *)mapView:(MKMapView *)map viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    MKPinAnnotationView *mapPin = nil;
+
+    if(annotation != map.userLocation)
+    {
+        static NSString *defaultPinID = @"defaultPin";
+        mapPin = (MKPinAnnotationView *)[map dequeueReusableAnnotationViewWithIdentifier:defaultPinID];
+        if (mapPin == nil )
+        {
+            mapPin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation
+                                                      reuseIdentifier:defaultPinID];
+            mapPin.canShowCallout = YES;
+            UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+            mapPin.rightCalloutAccessoryView = infoButton;
+        }
+        else
+            mapPin.annotation = annotation;
+        
+        
+    }
+    return mapPin;
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view
+calloutAccessoryControlTapped:(UIControl *)control {
+    MKPointAnnotation *point = view.annotation;
+    NSString *event = point.title;
+    
+    AppDelegate *del = [[UIApplication sharedApplication] delegate];
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription
+                                              entityForName:@"Event" inManagedObjectContext:[del managedObjectContext]];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              @"name == %@", event];
+    [request setPredicate:predicate];
+    
+    selectedEvent = [[[del managedObjectContext] executeFetchRequest:request error:nil] lastObject];
+    
+    [self performSegueWithIdentifier:@"MapEventDetail" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get reference to the destination view controller
+    EventDetailViewController *vc = [segue destinationViewController];
+    vc.event = selectedEvent;
+
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
