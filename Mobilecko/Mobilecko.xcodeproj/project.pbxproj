@@ -37,12 +37,12 @@
 		B15A9AD7182E92CF00CCD141 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15A9AD6182E92CF00CCD141 /* Security.framework */; };
 		B15A9AD9182E92D500CCD141 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15A9AD8182E92D500CCD141 /* StoreKit.framework */; };
 		B15A9ADB182E92DD00CCD141 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15A9ADA182E92DD00CCD141 /* SystemConfiguration.framework */; };
+		B19FA64618D75A2000567974 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B19FA64518D75A2000567974 /* User.m */; };
+		B19FA64918D75A2200567974 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = B19FA64818D75A2200567974 /* Event.m */; };
 		B1AC234B18CF7D650070377C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1AC234A18CF7D650070377C /* FacebookSDK.framework */; };
 		B1AC234F18CF7ECF0070377C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1AC234E18CF7ECF0070377C /* LoginViewController.m */; };
-		B1AC235818D0C3920070377C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B1AC235718D0C3920070377C /* User.m */; };
 		B1AC235B18D0CB880070377C /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1AC235A18D0CB880070377C /* ProfileViewController.m */; };
 		B1AC235D18D3601B0070377C /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = B1AC235C18D3601B0070377C /* user.png */; };
-		B1AC236118D364FE0070377C /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = B1AC236018D364FE0070377C /* Event.m */; };
 		B1AC236418D372CF0070377C /* LoggedInUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B1AC236318D372CF0070377C /* LoggedInUser.m */; };
 /* End PBXBuildFile section */
 
@@ -85,16 +85,16 @@
 		B15A9AD6182E92CF00CCD141 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		B15A9AD8182E92D500CCD141 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		B15A9ADA182E92DD00CCD141 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B19FA64418D75A2000567974 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		B19FA64518D75A2000567974 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		B19FA64718D75A2200567974 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		B19FA64818D75A2200567974 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		B1AC234A18CF7D650070377C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		B1AC234D18CF7ECF0070377C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		B1AC234E18CF7ECF0070377C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		B1AC235618D0C3920070377C /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		B1AC235718D0C3920070377C /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		B1AC235918D0CB870070377C /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		B1AC235A18D0CB880070377C /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		B1AC235C18D3601B0070377C /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
-		B1AC235F18D364FE0070377C /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		B1AC236018D364FE0070377C /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		B1AC236218D372CF0070377C /* LoggedInUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggedInUser.h; sourceTree = "<group>"; };
 		B1AC236318D372CF0070377C /* LoggedInUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggedInUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,8 +131,6 @@
 			children = (
 				B1AC236218D372CF0070377C /* LoggedInUser.h */,
 				B1AC236318D372CF0070377C /* LoggedInUser.m */,
-				B1AC235F18D364FE0070377C /* Event.h */,
-				B1AC236018D364FE0070377C /* Event.m */,
 				B15A9ADA182E92DD00CCD141 /* SystemConfiguration.framework */,
 				B15A9AD8182E92D500CCD141 /* StoreKit.framework */,
 				B15A9AD6182E92CF00CCD141 /* Security.framework */,
@@ -173,6 +171,7 @@
 		B15A9A9C182E7F6E00CCD141 /* Mobilecko */ = {
 			isa = PBXGroup;
 			children = (
+				B19FA64318D759FE00567974 /* Core Data */,
 				B1AC235E18D3609B0070377C /* Profile */,
 				B1AC234C18CF7EC40070377C /* Login */,
 				B15A9AC2182E887F00CCD141 /* Map */,
@@ -185,8 +184,6 @@
 				B15A9ABA182E7F6E00CCD141 /* DetailViewController.h */,
 				B15A9ABB182E7F6E00CCD141 /* DetailViewController.m */,
 				B15A9AB4182E7F6E00CCD141 /* Mobilecko.xcdatamodeld */,
-				B1AC235618D0C3920070377C /* User.h */,
-				B1AC235718D0C3920070377C /* User.m */,
 				B15A9A9D182E7F6E00CCD141 /* Supporting Files */,
 				B1306107189FF61700448B59 /* EventDetailViewController.h */,
 				B1306108189FF61700448B59 /* EventDetailViewController.m */,
@@ -218,6 +215,17 @@
 				B15A9AC8182E893400CCD141 /* MapViewController.m */,
 			);
 			name = Map;
+			sourceTree = "<group>";
+		};
+		B19FA64318D759FE00567974 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				B19FA64718D75A2200567974 /* Event.h */,
+				B19FA64818D75A2200567974 /* Event.m */,
+				B19FA64418D75A2000567974 /* User.h */,
+				B19FA64518D75A2000567974 /* User.m */,
+			);
+			name = "Core Data";
 			sourceTree = "<group>";
 		};
 		B1AC234C18CF7EC40070377C /* Login */ = {
@@ -308,14 +316,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1AC236118D364FE0070377C /* Event.m in Sources */,
-				B1AC235818D0C3920070377C /* User.m in Sources */,
+				B19FA64918D75A2200567974 /* Event.m in Sources */,
 				B15A9AA3182E7F6E00CCD141 /* main.m in Sources */,
 				B15A9AA7182E7F6E00CCD141 /* AppDelegate.m in Sources */,
 				B1306109189FF61700448B59 /* EventDetailViewController.m in Sources */,
 				B15A9AB6182E7F6E00CCD141 /* Mobilecko.xcdatamodeld in Sources */,
 				B15A9AB9182E7F6E00CCD141 /* MasterViewController.m in Sources */,
 				B1AC234F18CF7ECF0070377C /* LoginViewController.m in Sources */,
+				B19FA64618D75A2000567974 /* User.m in Sources */,
 				B15A9ABC182E7F6E00CCD141 /* DetailViewController.m in Sources */,
 				B1AC236418D372CF0070377C /* LoggedInUser.m in Sources */,
 				B1AC235B18D0CB880070377C /* ProfileViewController.m in Sources */,

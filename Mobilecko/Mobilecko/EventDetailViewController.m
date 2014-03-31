@@ -9,6 +9,8 @@
 #import "EventDetailViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "LoggedInUser.h"
+#import "User.h"
+#import "AppDelegate.h"
 @interface EventDetailViewController ()
 
 @end
@@ -16,7 +18,7 @@
 @implementation EventDetailViewController
 @synthesize event;
 @synthesize name,address,date;
-@synthesize attendBtn;
+@synthesize shareBtn, attendSeg;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -43,7 +45,12 @@
     date.text = stringFromDate;
     
     if (![[LoggedInUser sharedUser] currentUser]) {
-        [self.attendBtn setHidden:YES];
+        [self.shareBtn setHidden:YES];
+        [self.attendSeg setHidden:YES];
+    }
+    
+    if ([[[LoggedInUser sharedUser] currentUser].attending isEqual:event]) {
+        [self.attendSeg setSelectedSegmentIndex:1];
     }
 }
 
@@ -81,6 +88,34 @@
         params[kv[0]] = val;
     }
     return params;
+}
+
+- (IBAction)segmentChanged:(id)sender {
+    if (self.attendSeg.selectedSegmentIndex == 0) {
+        //Not Attending
+        User *currentuser = [[LoggedInUser sharedUser] currentUser];
+        currentuser.attending = nil;
+        //Cancel scheduled reminder
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    } else {
+        //Attending
+        User *currentuser = [[LoggedInUser sharedUser] currentUser];
+        currentuser.attending = event;
+        //Schedule a reminder
+        UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+        localNotification.fireDate = event.date;
+        localNotification.alertBody = @"You're attending a blood donation session today!";
+        localNotification.timeZone = [NSTimeZone defaultTimeZone];
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    }
+    
+    //don't forget to save
+    AppDelegate *appDel = [[UIApplication sharedApplication] delegate];
+    NSError *error = nil;
+    if (![appDel.managedObjectContext save:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
 }
 
 @end

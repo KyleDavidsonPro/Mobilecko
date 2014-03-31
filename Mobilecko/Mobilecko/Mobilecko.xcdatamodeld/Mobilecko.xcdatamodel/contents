@@ -10,14 +10,16 @@
         <attribute name="timeStamp" optional="YES" attributeType="Date">
             <userInfo/>
         </attribute>
+        <relationship name="attendants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="attending" inverseEntity="User" syncable="YES"/>
         <userInfo/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="fbProfileId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="attending" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="attendants" inverseEntity="Event" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Event" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="User" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Event" positionX="-119" positionY="132" width="128" height="165"/>
+        <element name="User" positionX="135" positionY="198" width="128" height="90"/>
     </elements>
 </model>

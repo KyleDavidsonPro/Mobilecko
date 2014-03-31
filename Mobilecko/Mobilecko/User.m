@@ -2,16 +2,18 @@
 //  User.m
 //  Mobilecko
 //
-//  Created by Kyle Davidson on 12/03/2014.
+//  Created by Kyle Davidson on 17/03/2014.
 //  Copyright (c) 2014 Kyle Davidson. All rights reserved.
 //
 
 #import "User.h"
+#import "Event.h"
 
 
 @implementation User
 
-@dynamic name;
 @dynamic fbProfileId;
+@dynamic name;
+@dynamic attending;
 
 @end

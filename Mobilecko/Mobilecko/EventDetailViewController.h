@@ -16,7 +16,8 @@
 @property(nonatomic, strong)IBOutlet UILabel *name;
 @property(nonatomic, strong)IBOutlet UILabel *address;
 @property(nonatomic, strong)IBOutlet UILabel *date;
-@property (strong, nonatomic) IBOutlet UIButton *attendBtn;
-
+@property (strong, nonatomic) IBOutlet UIButton *shareBtn;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *attendSeg;
 - (IBAction)eventAttend;
+- (IBAction)segmentChanged:(id)sender;
 @end
