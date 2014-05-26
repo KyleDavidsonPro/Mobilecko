@@ -180,7 +180,6 @@ calloutAccessoryControlTapped:(UIControl *)control {
         
         //Compare current position distance from all events
         CLLocationDistance dist = [updatedLocation distanceFromLocation:loc2];
-        //If the events are around a 1 mile radious
         if (dist < 2500) {
             UILocalNotification* localNotification = [[UILocalNotification alloc] init];
             localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
