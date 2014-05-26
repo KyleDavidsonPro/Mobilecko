@@ -206,11 +206,12 @@
 		B15A9A9C182E7F6E00CCD141 /* Mobilecko */ = {
 			isa = PBXGroup;
 			children = (
+				B15A9AA5182E7F6E00CCD141 /* AppDelegate.h */,
+				B15A9AA6182E7F6E00CCD141 /* AppDelegate.m */,
 				B19FA64318D759FE00567974 /* Core Data */,
 				B1AC235E18D3609B0070377C /* Profile */,
 				B1AC234C18CF7EC40070377C /* Login */,
 				B15A9AC2182E887F00CCD141 /* Map */,
-				B15A9AA6182E7F6E00CCD141 /* AppDelegate.m */,
 				B15A9AAE182E7F6E00CCD141 /* MainStoryboard_iPhone.storyboard */,
 				B15A9AB1182E7F6E00CCD141 /* MainStoryboard_iPad.storyboard */,
 				B15A9AB7182E7F6E00CCD141 /* MasterViewController.h */,
@@ -283,7 +284,6 @@
 		B1AC234C18CF7EC40070377C /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				B15A9AA5182E7F6E00CCD141 /* AppDelegate.h */,
 				B1AC234D18CF7ECF0070377C /* LoginViewController.h */,
 				B1AC234E18CF7ECF0070377C /* LoginViewController.m */,
 			);
@@ -541,6 +541,7 @@
 				GCC_PREFIX_HEADER = "Mobilecko/Mobilecko-Prefix.pch";
 				INFOPLIST_FILE = "Mobilecko/Mobilecko-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "B6AAE9EA-E1AC-4598-9D19-C542110AB6B1";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -558,6 +559,7 @@
 				GCC_PREFIX_HEADER = "Mobilecko/Mobilecko-Prefix.pch";
 				INFOPLIST_FILE = "Mobilecko/Mobilecko-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0CD582EB-D30B-423D-BEB0-2EE1EAF7E468";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
